@@ -287,7 +287,11 @@
     json["task_id"] = task_id++;
     json["command"] = "SearchGroupById";
 
-    json["id"] = "118987297";
+    var mids = [];
+    mids.push("cdda796xxxxxxx");
+    mids.push("cdda796xxxxxxx");
+
+    json["mids"] = mids;
 
 ````
 
