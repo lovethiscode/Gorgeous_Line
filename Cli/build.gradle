@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    implementation('io.netty:netty-all:4.1.59.Final')
+    implementation("com.alibaba:fastjson:1.2.5")
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
