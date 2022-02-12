@@ -51,6 +51,7 @@ public class Demo extends JDialog implements WebSocketClientHandler.Handle {
     private JButton getMe;
     private JTextField contactmid;
     private JTextArea message;
+    private JButton getContactInfo;
     WebSocketClientHandler webSocketClientHandler;
     Channel websocketChannel;
 
@@ -163,7 +164,7 @@ public class Demo extends JDialog implements WebSocketClientHandler.Handle {
         login.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                //ty006009@outlook.com
+                //ty006009@outlook.com  ty006007008    b4806affa83801c924c5a5c85f12f085af9d6fc9dab38d58ae8aaeb1a42386ca
                 JSONObject command = new JSONObject();
                 command.put("command", "Login");
                 command.put("email", email.getText());
@@ -263,6 +264,21 @@ public class Demo extends JDialog implements WebSocketClientHandler.Handle {
                 JSONObject command = new JSONObject();
                 command.put("command", "GetProfile");
                 command.put("task_id", taskId++);
+                SendMessage(command);
+            }
+        });
+        getContactInfo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                JSONObject command = new JSONObject();
+                command.put("command", "GetContacts");
+                command.put("task_id", taskId++);
+
+                JSONArray mids = new JSONArray();
+                mids.add(mid.getText());
+
+                command.put("mids", mids);
+
                 SendMessage(command);
             }
         });
